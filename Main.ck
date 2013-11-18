@@ -5,6 +5,19 @@
 Hid hi;
 HidMsg msg;
 
+//ASCII Values
+32 => int spacebar; 
+48 => int zero; 
+49 => int one; 
+50 => int two; 
+51 => int three; 
+52 => int four; 
+53 => int five; 
+54 => int six; 
+55 => int seven; 
+56 => int eight; 
+57 => int nine; 
+
 // which keyboard
 0 => int device;
 
@@ -46,9 +59,13 @@ while (true){
         {
             //DEBUG
             //<<< "down:", msg.which, "(code)", msg.key, "(usb key)", msg.ascii, "(ascii)" >>>;
+            if(msg.ascii == spacebar){ 
+                //change the bpm
+            } else { 
+               //Switch control block
+            } 
         }
-    }
-    
+    } 
 }
 
 //Parts to fill in
