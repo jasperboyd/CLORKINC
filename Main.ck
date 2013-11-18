@@ -42,6 +42,8 @@ if( !hi.openKeyboard( device ) ) me.exit();
 58 => int b3b;    70 => int b4b;    82 => int b5b;    94 => int b6b;
 59 => int b3;     71 => int b4;     83 => int b5;     95 => int b6;
 
+0 => rest; 
+
 // TIME 
 
 //Default 60 BPM 
@@ -102,8 +104,40 @@ while (true){
 
 fun void inC1 () { 
     while (true) { 
+       
+        SinOsc phrase1 => dac;
         
-        //play the tune
+        //number of beats (example: 4 bars)
+        16 => int beats;  
+        
+        //array of notes in
+        int notes[beats];
+        
+        c3 => notes[0];
+        rest => notes[1];
+        c3 => notes[2];
+        rest => notes[3];
+        rest => notes[4];
+        e3 => notes[5];
+        d3 => notes[6];
+        c3 => notes[7];
+        rest => notes[8];
+        rest => notes[9];
+        g3 => notes[10];
+        a3 => notes[11];
+        g3 => notes[12];
+        f3 => notes[13];
+        e3 => notes[14];
+        rest => notes[15];
+        
+        for (0 => int i; i<beats; i++){
+            
+            //play the tune
+            phrase1.freq().mtof(notes[i); 
+            
+            beat => now; 
+        
+        }
         
         hi=>now;
         
