@@ -59,10 +59,30 @@ while (true){
         {
             //DEBUG
             //<<< "down:", msg.which, "(code)", msg.key, "(usb key)", msg.ascii, "(ascii)" >>>;
+            
+            //SWITCH (CHUCK HAS NOT IMPLEMENTED SWITCH)
             if(msg.ascii == spacebar){ 
                 //change the bpm
-            } else { 
-               //Switch control block
+            } else if (msg.ascii == zero) { 
+                //exit
+            } else if (msg.ascii == one) { 
+                inC1();
+            } else if (msg.ascii == two) { 
+                inC2();
+            } else if (msg.ascii == three) { 
+                inC3(); 
+            } else if (msg.ascii == four) { 
+                inC4(); 
+            } else if (msg.ascii == five) { 
+                inC5(); 
+            } else if (msg.ascii == six) { 
+                inC6(); 
+            } else if (msg.ascii == seven) { 
+                inC7(); 
+            } else if (msg.ascii == eight) { 
+                inC8(); 
+            } else if (msg.ascii == nine) {
+                inC9(); 
             } 
         }
     } 
