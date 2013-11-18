@@ -1,5 +1,11 @@
 //Main.ck 
 
+//TODO: 
+//-Implement phrases
+//-BPM functionality 
+//-Implement sync metronome 
+//-Test Boilerplate
+
 // KEYBOARD
 
 Hid hi;
@@ -48,7 +54,7 @@ if( !hi.openKeyboard( device ) ) me.exit();
 
 //Default 60 BPM 
 1::second => dur beat;
-0 => float timestamp; 
+0 => float timestamp;//probably won't be using float
 
 //Main Loop 
 while (true){ 
