@@ -47,12 +47,6 @@ while (true){
             //DEBUG
             //<<< "down:", msg.which, "(code)", msg.key, "(usb key)", msg.ascii, "(ascii)" >>>;
         }
-        
-        else
-        {
-            //DEBUG
-            //<<< "up:", msg.which, "(code)", msg.key, "(usb key)", msg.ascii, "(ascii)" >>>;
-        }
     }
     
 }
