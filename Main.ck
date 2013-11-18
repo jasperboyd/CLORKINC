@@ -46,6 +46,7 @@ if( !hi.openKeyboard( device ) ) me.exit();
 
 //Default 60 BPM 
 1::second => dur beat;
+0 => float timestamp; 
 
 //Main Loop 
 while (true){ 
@@ -62,7 +63,12 @@ while (true){
             
             //SWITCH (CHUCK HAS NOT IMPLEMENTED SWITCH)
             if(msg.ascii == spacebar){ 
-                //change the bpm
+                // record current timestamp
+                0 => float currenttime
+                // if there is a timestamp
+                   //Calculate BPM & update Beat
+                // else 
+                   //Set timestamp to currenttime
             } else if (msg.ascii == zero) { 
                 //exit
             } else if (msg.ascii == one) { 
