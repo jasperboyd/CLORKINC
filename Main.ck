@@ -84,14 +84,28 @@ while (true){
             } else if (msg.ascii == nine) {
                 inC9(); 
             } 
+            
+            //figure out what to use for the rest of the parts
         }
     } 
 }
 
 //Parts to fill in
 
+//Example
+
 fun void inC1 () { 
-    //implement
+    while (true) { 
+        
+        //play the tune
+        
+        hi=>now;
+        
+        //If any key is pressed exit the loop
+        if (msg.buttonIsDown()) { 
+            break; 
+        }
+    }
 }
 
 fun void inC2 () { 
