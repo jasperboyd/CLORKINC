@@ -50,10 +50,19 @@ if( !hi.openKeyboard( device ) ) me.exit();
 
 0 => rest; 
 
-// TIME 
+// RHYTHMS
 
 //Default 60 BPM 
-1::second => dur beat;
+1::second => dur quarter;
+beat*2 => dur half; 
+beat*4 => dur whole; 
+beat/2 => dur eighth; 
+beat/4 => dur sixteenth; 
+beat/8 => dur thirtySecond => dur grace; 
+quarter - thirtySecond => dur quarterShort; 
+quarter + eighth => dur dottedQuarter; 
+eighth + sixteenth => dur dottedEight;
+
 0 => float timestamp;//probably won't be using float
 
 //Main Loop 
@@ -80,24 +89,8 @@ while (true){
             } else if (msg.ascii == zero) { 
                 //exit
             } else if (msg.ascii == one) { 
-                inC1();
-            } else if (msg.ascii == two) { 
-                inC2();
-            } else if (msg.ascii == three) { 
-                inC3(); 
-            } else if (msg.ascii == four) { 
-                inC4(); 
-            } else if (msg.ascii == five) { 
-                inC5(); 
-            } else if (msg.ascii == six) { 
-                inC6(); 
-            } else if (msg.ascii == seven) { 
-                inC7(); 
-            } else if (msg.ascii == eight) { 
-                inC8(); 
-            } else if (msg.ascii == nine) {
-                inC9(); 
-            } 
+                proceed();
+            }  
             
             //figure out what to use for the rest of the parts
         }
@@ -114,34 +107,33 @@ fun void inC1 () {
         SinOsc phrase1 => dac;
         
         //number of beats (example: 4 bars)
-        16 => int beats;  
+        6 => int numberOfNotes;  
         
         //array of notes in
-        int notes[beats];
+        int notes[numberOfNotes];
+        int rhythms[numberOfNotes];
         
         c3 => notes[0];
-        rest => notes[1];
+        e3 => notes[1];
         c3 => notes[2];
-        rest => notes[3];
-        rest => notes[4];
+        e3 => notes[3];
+        c3 => notes[4];
         e3 => notes[5];
-        d3 => notes[6];
-        c3 => notes[7];
-        rest => notes[8];
-        rest => notes[9];
-        g3 => notes[10];
-        a3 => notes[11];
-        g3 => notes[12];
-        f3 => notes[13];
-        e3 => notes[14];
-        rest => notes[15];
         
-        for (0 => int i; i<beats; i++){
+        grace => rhythm[0]; 
+        quarterShort => rhythm[1]; 
+        grace => rhythm[2]; 
+        quarterShort => rhythm[3]; 
+        grace => rhythm[4]; 
+        quarterShort => rhythm[5]; 
+        
+        
+        for (0 => int i; i<numberOfNotes; i++){
             
             //play the tune
             phrase1.freq().mtof(notes[i); 
             
-            beat => now; 
+            rhythms[i] => now; 
         
         }
         
