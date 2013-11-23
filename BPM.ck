@@ -28,11 +28,12 @@ while(true){
                 
                 bpm.broadcast(); 
                 
+                break; 
+                
             } else { 
                 now => recent;  
                 break; //leave the loop   
             }
         }
-    } 
-    
+    }   
 }//infinite loop 

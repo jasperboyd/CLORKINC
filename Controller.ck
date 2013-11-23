@@ -49,10 +49,12 @@ while(true){
                bpm => now; 
                bpm.tempo => globalTempoEvent.tempo;
                globalTempoEvent.broadcast(); 
+               break;
             } else if (msg.ascii == zero) { 
                 me.exit(); 
             } else if (msg.ascii == one) { 
                 proceed.broadcast(); 
+                break; 
             }  
         }
     } 
