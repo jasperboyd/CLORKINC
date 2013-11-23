@@ -9,6 +9,8 @@ class BPMEvent extends Event
     dur tempo;
 }
 
+BPMEvent bpm; 
+
 now => Time recent => Time beforeRecent; 
 
 while(true){ 
@@ -20,11 +22,11 @@ while(true){
         if(msg.isButtonDown() && msg.ascii == spacebar){
             if (recent != beforeRecent){
                 
-                //now => recent; 
-               
-                //recent - beforeRecent = tempo 
+                now => recent; 
                 
-                //broadcast new tempo
+                recent - beforeRecent => bpm.tempo;
+                
+                bpm.broadcast(); 
                 
             } else { 
                 now => recent;  

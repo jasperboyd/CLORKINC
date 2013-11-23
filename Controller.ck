@@ -29,6 +29,7 @@ class BPMEvent extends Event
 
 BPMEvent bpm; 
 Machine.add("BPM.ck") => int bpmShred;
+1::second => dur globalTempo;//default to 60
 
 //Events
 Event proceed;
