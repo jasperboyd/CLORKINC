@@ -11,7 +11,6 @@ HidMsg msg;
 32 => int spacebar; 
 48 => int zero; 
 49 => int one; 
-50 => int two
 
 // which keyboard
 0 => int device;
