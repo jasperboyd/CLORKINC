@@ -47,7 +47,9 @@ while(true){
         if( msg.isButtonDown() )
         {
             if(msg.ascii == spacebar){ 
-               BPM => now; 
+               bpm => now; 
+               bpm.tempo => globalTempo;
+               //broadcast new global tempo
             } else if (msg.ascii == zero) { 
                 me.exit(); 
             } else if (msg.ascii == one) { 
