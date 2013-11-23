@@ -10,17 +10,19 @@ while(true){
     // wait on event
     hi => now;
     
-    while( hi.recv( msg ) )
-    {
-        if( msg.isButtonDown() )
-        {
-            if(msg.ascii == spacebar){ 
-                if (recent != beforeRectent){
-                    
-                } else { 
-                    
-                }
-            } 
+    while(hi.recv( msg )){
+        if(msg.isButtonDown() && msg.ascii == spacebar){
+            if (recent != beforeRecent){
+                
+                //now => recent; 
+               
+                //recent - beforeRecent = tempo 
+                
+                //broadcast new tempo
+                
+            } else { 
+                now => recent;      
+            }
         }
     } 
     
