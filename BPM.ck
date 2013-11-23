@@ -3,6 +3,12 @@
 //This waits for input from the spacebar and sets a global 
 //tempo. 
 
+// BPM
+class BPMEvent extends Event
+{
+    dur tempo;
+}
+
 now => Time recent => Time beforeRecent; 
 
 while(true){ 
@@ -21,7 +27,8 @@ while(true){
                 //broadcast new tempo
                 
             } else { 
-                now => recent;      
+                now => recent;  
+                break; //leave the loop   
             }
         }
     } 

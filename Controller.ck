@@ -22,8 +22,19 @@ if( me.args() ) me.arg(0) => Std.atoi => device;
 if( !hi.openKeyboard( device ) ) me.exit();
 
 // BPM
-Event BPM; 
-Machine.add("BPM.ck") => int BPM;
+class BPMEvent extends Event
+{
+    dur tempo;
+}
+
+BPMEvent bpm; 
+Machine.add("BPM.ck") => int bpmShred;
+
+//Events
+Event proceed;
+
+
+-1 => int currentPhrase; 
 
 while(true){ 
     
@@ -35,14 +46,12 @@ while(true){
         if( msg.isButtonDown() )
         {
             if(msg.ascii == spacebar){ 
-                
+               BPM => now; 
             } else if (msg.ascii == zero) { 
                 me.exit(); 
             } else if (msg.ascii == one) { 
-                //proceed to the next phrase
+                proceed.broadcast(); 
             }  
-            
-            //figure out what to use for the rest of the parts
         }
     } 
    
