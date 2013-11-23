@@ -58,10 +58,14 @@ beat*2 => dur half;
 beat*4 => dur whole; 
 beat/2 => dur eighth; 
 beat/4 => dur sixteenth; 
+//grace
 beat/8 => dur thirtySecond => dur grace; 
 quarter - thirtySecond => dur quarterShort; 
-quarter + eighth => dur dottedQuarter; 
-eighth + sixteenth => dur dottedEight;
+//dotted
+whole + half => dur dWhole;
+half + quarter => dur dHalf; 
+quarter + eighth => dur dQuarter;
+eighth + sixteenth => dur dEighth;
 
 0 => float timestamp;//probably won't be using float
 
