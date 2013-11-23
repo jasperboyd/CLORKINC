@@ -22,12 +22,12 @@ if( me.args() ) me.arg(0) => Std.atoi => device;
 if( !hi.openKeyboard( device ) ) me.exit();
 
 // BPM
-class BPMEvent extends Event
+class TempoEvent extends Event
 {
     dur tempo;
 }
 
-BPMEvent bpm; 
+TempoEvent bpm; 
 Machine.add("BPM.ck") => int bpmShred;
 1::second => dur globalTempo;//default to 60
 

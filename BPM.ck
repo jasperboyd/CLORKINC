@@ -4,12 +4,12 @@
 //tempo. 
 
 // BPM
-class BPMEvent extends Event
+class TempoEvent extends Event
 {
     dur tempo;
 }
 
-BPMEvent bpm; 
+TempoEvent bpm; 
 
 now => Time recent => Time beforeRecent; 
 
