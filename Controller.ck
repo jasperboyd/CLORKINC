@@ -1,7 +1,17 @@
 //Controller.ck 
 //-------------
 //This controller waits for keyboard input and triggers
-//phrases based on that input. 
+//phrases based on that input.
+
+class TempoEvent extends Event
+{
+    dur tempo;
+} 
+
+//Events
+Event proceed;
+TempoEvent bpm; 
+TempoEvent globalTempoEvent; 
 
 // KEYBOARD
 Hid hi;
@@ -22,20 +32,9 @@ if( me.args() ) me.arg(0) => Std.atoi => device;
 if( !hi.openKeyboard( device ) ) me.exit();
 
 // BPM
-class TempoEvent extends Event
-{
-    dur tempo;
-}
-
-TempoEvent bpm; 
 Machine.add("BPM.ck") => int bpmShred;
-1::second => dur globalTempo;//default to 60
 
-//Events
-Event proceed;
-
-
--1 => int currentPhrase; 
+1::second => globalTempoEvent.tempo;//default to 60
 
 while(true){ 
     
@@ -48,8 +47,8 @@ while(true){
         {
             if(msg.ascii == spacebar){ 
                bpm => now; 
-               bpm.tempo => globalTempo;
-               //broadcast new global tempo
+               bpm.tempo => globalTempoEvent.tempo;
+               globalTempoEvent.broadcast(); 
             } else if (msg.ascii == zero) { 
                 me.exit(); 
             } else if (msg.ascii == one) { 
