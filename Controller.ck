@@ -27,10 +27,24 @@ Machine.add("BPM.ck") => int BPM;
 
 while(true){ 
     
-    //is the bpm changing
+    // wait on event
+    hi => now;
     
-    //is the music proceeding
-    
+    while( hi.recv( msg ) )
+    {
+        if( msg.isButtonDown() )
+        {
+            if(msg.ascii == spacebar){ 
+                
+            } else if (msg.ascii == zero) { 
+                me.exit(); 
+            } else if (msg.ascii == one) { 
+                //proceed to the next phrase
+            }  
+            
+            //figure out what to use for the rest of the parts
+        }
+    } 
    
 }//infinite loop
 
