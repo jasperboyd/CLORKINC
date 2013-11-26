@@ -3,6 +3,24 @@
 //This waits for input from the spacebar and sets a global 
 //tempo. 
 
+// KEYBOARD
+Hid hi;
+HidMsg msg;
+
+// ASCII Values
+32 => int spacebar; 
+48 => int zero; 
+49 => int one; 
+
+// which keyboard
+0 => int device;
+
+// get from command line
+if( me.args() ) me.arg(0) => Std.atoi => device;
+
+// open keyboard (get device number from command line)
+if( !hi.openKeyboard( device ) ) me.exit();
+
 // BPM
 class TempoEvent extends Event
 {
@@ -11,29 +29,3 @@ class TempoEvent extends Event
 
 TempoEvent bpm; 
 
-now => Time recent => Time beforeRecent; 
-
-while(true){ 
-    
-    // wait on event
-    hi => now;
-    
-    while(hi.recv( msg )){
-        if(msg.isButtonDown() && msg.ascii == spacebar){
-            if (recent != beforeRecent){
-                
-                now => recent; 
-                
-                recent - beforeRecent => bpm.tempo;
-                
-                bpm.broadcast(); 
-                
-                break; 
-                
-            } else { 
-                now => recent;  
-                break; //leave the loop   
-            }
-        }
-    }   
-}//infinite loop 
